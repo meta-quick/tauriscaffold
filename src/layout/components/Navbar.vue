@@ -1,9 +1,9 @@
 <template>
-    <div class="logo flex">
-        <img src="../../assets/logo.png" style="width: 32px;height: 32px;" />
+    <div class="flex">
+        <img class="logo" src="../../assets/logo.png" style="width: 32px;height: 32px;" />
         <div class="title" style="line-height: 32px;">ECTD Manager</div>
-        <span class="ml-16 mr-2" style="line-height: 32px;">运行环境:</span>
-        <el-select v-model="value" placeholder="Select" class="xx">
+        <span class="title ml-10" style="line-height: 32px;">运行环境:</span>
+        <el-select v-model="value" placeholder="Select" class="title ml-1 model">
             <el-option v-for="item in cities" :key="item.value" :label="item.label" :value="item.value">
                 <span style="float: left">{{ item.label }}</span>
                 <span style="float: right;color: var(--el-text-color-secondary);font-size: 13px; ">{{ item.value }}</span>
@@ -53,6 +53,7 @@ const cities = [
 .title {
     font-size: 15px;
     color: #100f0f;
+    margin-top: 10px;
 }
 
 .enviro {
@@ -62,24 +63,24 @@ const cities = [
 }
 
 .logo {
-    margin-left: -40px;
-    margin-top: -10px;
+    margin-top: 10px;
 }
 
 .nav {
     background-color: transparent;
-    margin-top: -10px;
+    // margin-top: -10px;
     font-size: 15px;
-    margin-right: 200px;
+    // margin-right: 200px;
     font-weight: bold;
 }
 
 .divider {
-    margin-top: 8px;
+    margin-top: 18px;
 }
 
-::v-deep .xx .el-input__inner {
+::v-deep .model .el-input__inner {
     box-shadow: none;
+    line-height: 32px;
 }
 </style>
   
