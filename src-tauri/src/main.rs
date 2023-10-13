@@ -1,21 +1,17 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-// Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
-}
-
-#[tauri::command]
-fn wow(name: &str) -> String {
-    format!("Wow, {}! You've been greeted from Rust!", name)
+fn echo(req: &str) -> String {
+   let req = format!("Wow, Recieved!! {}!", req);
+   println!("{}",&req);
+   return req;
 }
 
 #[tokio::main]
 async fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet,wow])
+        .invoke_handler(tauri::generate_handler![echo])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
